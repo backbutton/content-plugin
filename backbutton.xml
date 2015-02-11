@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/plugin-install.dtd">
-<install version="1.5" type="plugin" group="content">
+<install version="1.5" type="plugin" group="content" method="upgrade">
   <name>Content - Back button</name>
-  <author>Martijn Vreeken and Wojciech Smolinski</author>
-  <authorEmail>info@zwartschaap.com</authorEmail>
-  <authorUrl>http://www.zwartschaap.com</authorUrl>
+  <author>Wojciech Smolińdski</author>
+  <authorEmail>wojsmol@wp.pl</authorEmail>
+  <authorUrl></authorUrl>
   <creationDate>April 2008</creationDate>
-  <copyright>Copyright Zwart Schaap webdesign 2008</copyright>
+  <copyright>Copyright Zwart Schaap webdesign 2008 and Wojciech Smoliński 2011</copyright>
   <license>GNU/GPL</license>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <description>bb_description</description>
   <files>
     <filename plugin="backbutton">backbutton.php</filename>
@@ -19,14 +19,6 @@
             <language tag="pl-PL">language/pl-PL/pl-PL.plg_content_backbutton.ini</language>
 			<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_backbutton.ini</language>
   </languages>
-	<administration>
-		<languages>
-		    <language tag="de-DE">language/de-DE/de-DE.plg_content_backbutton.ini</language>
-			<language tag="en-GB">language/en-GB/en-GB.plg_content_backbutton.ini</language>
-            <language tag="pl-PL">language/pl-PL/pl-PL.plg_content_backbutton.ini</language>
-			<language tag="nl-NL">language/nl-NL/nl-NL.plg_content_backbutton.ini</language>
-		</languages>
-	</administration>
   <params>
     <param name="linklabel" type="text" default="Back" label="Display text" description="display text desc" />
     <param name="showindiv" type="radio" default="1" label="Wrap div" description="Put a div tag around the link">

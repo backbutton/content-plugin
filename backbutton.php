@@ -1,6 +1,6 @@
 <?php
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die;
 
 jimport( 'joomla.plugin.plugin' );
 
@@ -20,19 +20,24 @@ class plgContentBackButton extends JPlugin
 	function plgContentBackbutton( &$subject, $params )
 	{
 		parent::__construct( $subject, $params );
+		$this->loadLanguage();
 	}
 	/**
 	 * Replaces {backbutton} with a back button link
 	 *
 	 * Method is called by the view
 	 *
-	 * @param 	object		The article object.  Note $article->text is also available
-	 * @param 	object		The article params
-	 * @param 	int			The 'page' number
-	 */
-	function onPrepareContent( &$article, &$params, $limitstart = 0 )
+	 * 
+	 * @param	string	The context of the content being passed to the plugin.
+	 * @param	object	The article object.  Note $article->text is also available
+	 * @param	object	The article params
+	 * @param	int		The 'page' number
+	 *
+	 **/
+	 
+	function onContentPrepare( $context, &$article, &$params, $page=0 )
 	{
-		global $mainframe;
+		$app = &JFactory::getApplication();
 		$this->params->get('showindiv') == 1 ? $link = '<div class="backbutton">' : $link = '';
 		$pattern = '{backbutton}';
 		$link .= '<a href="javascript:history.back();">'. $this->params->get('linklabel', JText::_('BACK')) .'</a>';

@@ -39,8 +39,9 @@ class plgContentBackButton extends JPlugin
 	{
 		$app = &JFactory::getApplication();
 		$this->params->get('showindiv') == 1 ? $link = '<div class="backbutton">' : $link = '';
+		$this->params->get('linkclass') == 1 ? $aclass = 'class="backbutton"' : $aclass = '';
 		$pattern = '{backbutton}';
-		$link .= '<a href="javascript:history.back();">'. $this->params->get('linklabel', JText::_('BACK')) .'</a>';
+		$link .= '<a href="javascript:history.back();"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';
 		$this->params->get('showindiv') == 1 ? $link .= '</div>' : $link .= '';
 		$article->text = str_replace($pattern, $link, $article->text);
   }

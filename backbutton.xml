@@ -8,17 +8,26 @@
   <creationDate>April 2008</creationDate>
   <copyright>Copyright Zwart Schaap webdesign 2008 and Wojciech Smoliński 2011</copyright>
   <license>GNU/GPL</license>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <description>BB_DESCRIPTION</description>
   <files>
     <filename plugin="backbutton">backbutton.php</filename>
 	<folder>language</folder>
   </files>
+  <administration>
+  <files>
+	<folder>language</folder>
+  </files>
+  </administration>
 <config>
 <fields name="params">
   <fieldset name="basic">
     <field name="linklabel" type="text" label="DISPLAY_TEXT" description="DISPLAY_TEXT_DESC" />
     <field name="showindiv" type="radio" default="1" label="WRAP_DIV" description="PUT_A_DIV_TAG_AROUND_THE_LINK">
+      <option value="0">JNO</option>
+      <option value="1">JYES</option>
+    </field>
+	<field name="linkclass" type="radio" default="0" label="AC_TO_THE_LINK" description="A_A_BACKBUTTON_CLASS_DIRECTLY_TO_THE_A_TAG">
       <option value="0">JNO</option>
       <option value="1">JYES</option>
     </field>

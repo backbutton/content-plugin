@@ -37,7 +37,7 @@ class plgContentBackButton extends JPlugin
 	 
 	function onContentPrepare( $context, &$article, &$params, $page=0 )
 	{
-		$app = &JFactory::getApplication();
+		$app = JFactory::getApplication();
 		$this->params->get('showindiv') == 1 ? $link = '<div class="backbutton">' : $link = '';
 		$this->params->get('linkclass') == 1 ? $aclass = 'class="backbutton"' : $aclass = '';
 		$pattern = '{backbutton}';

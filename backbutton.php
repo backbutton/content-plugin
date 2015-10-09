@@ -46,7 +46,7 @@ class plgContentBackButton extends JPlugin
 		// This will mean that if someone arrives on a page (usually a news article, etc) from a search engine, it will NOT do the history.back
 		// Instead it will take the URL and go up a tier instead of going back to the search engine
 		$referPage = $_SERVER['HTTP_REFERER'];
-		$server_name = $_SERVER['HTTP_HOST']);
+		$server_name = $_SERVER['HTTP_HOST'];
 		
 		if (strpos($referPage,$server_name) !== false) {
 			$link .= '<a href="javascript:history.back();"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';

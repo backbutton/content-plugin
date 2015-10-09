@@ -41,7 +41,30 @@ class plgContentBackButton extends JPlugin
 		$this->params->get('showindiv') == 1 ? $link = '<div class="backbutton">' : $link = '';
 		$this->params->get('linkclass') == 1 ? $aclass = 'class="backbutton"' : $aclass = '';
 		$pattern = '{backbutton}';
-		$link .= '<a href="javascript:history.back();"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';
+		
+		// OOBA EDIT
+		// This will mean that if someone arrives on a page (usually a news article, etc) from a search engine, it will NOT do the history.back
+		// Instead it will take the URL and go up a tier instead of going back to the search engine
+		$referPage = $_SERVER['HTTP_REFERER'];
+		$server_name = $_SERVER['HTTP_HOST'];
+		
+		if (strpos($referPage,$server_name) !== false) {
+			$link .= '<a href="javascript:history.back();"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';
+		}
+		else
+		{ 
+		$getCurrentUrl = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+		$split_url = explode('/', $getCurrentUrl); // Turns the URL into an array
+		$split_urlMinusLast = array_pop($split_url); // Removes last array item
+		$newUrl = implode('/', $split_url); // Puts the ARRAY back together with /
+		
+		$link .= '<a href="' . $newUrl . '"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';
+		}
+		// END OF EDIT
+		
+		
+		// ORIGINAL LINK BELOW
+		// $link .= '<a href="javascript:history.back();"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';
 		$this->params->get('showindiv') == 1 ? $link .= '</div>' : $link .= '';
 		$article->text = str_replace($pattern, $link, $article->text);
   }

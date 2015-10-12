@@ -41,18 +41,11 @@ class plgContentBackButton extends JPlugin
 		$this->params->get('showindiv') == 1 ? $link = '<div class="backbutton">' : $link = '';
 		$this->params->get('linkclass') == 1 ? $aclass = 'class="backbutton"' : $aclass = '';
 		$pattern = '{backbutton}';
-		
-		
 
-		////
-		////// OOBA EDIT
-		//////// Changes to allow the choice of always using history.back, or if the user arrives from a different site (search engine)
-		//////// then the link will be generated from the site structure
-		
 		// REFERENCE LINKS
 		// http://joomla.stackexchange.com/questions/4475/if-url-is-equal-to-x-then-do-this/4477#4477
 		// https://docs.joomla.org/JURI/toString		
-		if ($this->params->get('standardLinkStructure') == 1)
+		if ($this->params->get('standardlinkstructure', 1) == 1)
 		{
 		$link .= '<a href="javascript:history.back();"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';	
 		}
@@ -65,7 +58,7 @@ class plgContentBackButton extends JPlugin
 		$currentURL = JURI::getInstance(); // Gets the current url
 		$justHost = $currentURL->toString( array( 'host' ) ); // www. to .co.uk
 		$justScheme = $currentURL->toString( array( 'scheme' ) ); // http or https
-		$urlWithoutScheme = $currentURL->toString( array( 'host', 'path' ) ); // whole domain minus the scheme 
+		$urlWithoutScheme = $currentURL->toString( array( 'host', 'path', 'port' ) ); // whole domain minus the scheme 
 		
 			if (strpos($sanitizeRefererPage,$justHost) !== false) {
 				$link .= '<a href="javascript:history.back();"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';
@@ -78,9 +71,7 @@ class plgContentBackButton extends JPlugin
 			
 			$link .= '<a href="' . $newBackUrl . '"' . $aclass .'>'. $this->params->get('linklabel', JText::_('BBBACK')) .'</a>';
 			}
-		}	
-		// END OF EDIT
-		
+		}
 
 		$this->params->get('showindiv') == 1 ? $link .= '</div>' : $link .= '';
 		$article->text = str_replace($pattern, $link, $article->text);

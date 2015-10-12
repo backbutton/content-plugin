@@ -31,7 +31,7 @@
       <option value="0">JNO</option>
       <option value="1">JYES</option>
     </field>
-	<field name="standardLinkStructure" type="radio" default="1" label="CHANGE_LINK_STRUCTURE" description="HOW_BACKLINK_GETS_GENERATED">
+	<field name="standardlinkstructure" type="radio" default="1" label="CHANGE_LINK_STRUCTURE" description="HOW_BACKLINK_GETS_GENERATED">
       <option value="0">JNO</option>
       <option value="1">JYES</option>
     </field>	

@@ -8,7 +8,7 @@
   <creationDate>May 2015</creationDate>
   <copyright>Copyright Zwart Schaap webdesign 2008 and Wojciech Smoliński 2011</copyright>
   <license>GNU/GPL</license>
-  <version>1.2.3</version>
+  <version>1.2.4-dev</version>
   <description>BB_DESCRIPTION</description>
   <files>
     <filename plugin="backbutton">backbutton.php</filename>

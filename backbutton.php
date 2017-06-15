@@ -17,7 +17,7 @@ class plgContentBackButton extends JPlugin
 	 * @param object $params  The object that holds the plugin parameters
 	 * @since 1.5
 	 */
-	function plgContentBackbutton( &$subject, $params )
+	function __construct( &$subject, $params )
 	{
 		parent::__construct( $subject, $params );
 		$this->loadLanguage();
